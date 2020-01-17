@@ -3,7 +3,7 @@
     <resource methods="GET">
         <inSequence>
             <payloadFactory media-type="text">
-                <format>Hello Nurse</format>
+                <format>Hello Darkness My Old Friend</format>
                 <args/>
             </payloadFactory>
             <respond/>
