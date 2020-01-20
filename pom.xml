@@ -81,7 +81,7 @@
 							<argument>cookies</argument>
 							<argument>-X</argument>
 							<argument>POST</argument>
-							<argument>https://apps.cloud.wso2.com/appmgt/site/blocks/application/application.jag</argument>
+							<argument>https://integration.cloud.wso2.com/appmgt/site/blocks/application/application.jag</argument>
 							<argument>-F</argument>
 							<argument>action=createApplication</argument>
 							<argument>-F</argument>
