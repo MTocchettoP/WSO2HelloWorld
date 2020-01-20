@@ -8,10 +8,13 @@
   <packaging>pom</packaging>
   <name>HelloWorldProject</name>
   <description>HelloWorldProject</description>
+  <properties>
+	<module.car.name>HelloWorldCompositeApplication</module.car.name>
+  </properties>
   <modules>
     <module>HelloWorld</module>
 	<module>HelloWorldProjectRegistry</module>
-    <module>HelloWorldCompositeApplication</module>  
+    <module>${module.car.name}</module>  
   </modules>
   <distributionManagement>
        <repository>
@@ -99,7 +102,7 @@
 							<argument>-F</argument>
 							<argument>tags=[{"key":"BUILD_NUMBER","value":"${build.number}"}]</argument>
 							<argument>-F</argument>
-							<argument>fileupload=@${project.build.directory}/${project.artifactId}-${project.version}.war</argument>
+							<argument>fileupload=@${module.car.name}\${project.build.directory}\${project.artifactId}-${project.version}.car</argument>
 							<argument>-F</argument>
 							<argument>isFileAttached=true</argument>
 							<argument>-F</argument>
