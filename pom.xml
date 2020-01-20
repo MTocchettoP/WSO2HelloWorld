@@ -10,6 +10,7 @@
   <description>HelloWorldProject</description>
   <properties>
 	<module.car.name>HelloWorldCompositeApplication</module.car.name>
+	<project.deployable.filename>HelloWorld</project.deployable.filename>
   </properties>
   <modules>
     <module>HelloWorld</module>
@@ -102,7 +103,7 @@
 							<argument>-F</argument>
 							<argument>tags=[{"key":"BUILD_NUMBER","value":"${build.number}"}]</argument>
 							<argument>-F</argument>
-							<argument>fileupload=@${project.basedir}\${module.car.name}\target\${project.artifactId}-${project.version}.car</argument>
+							<argument>fileupload=@${project.basedir}\${module.car.name}\target\${project.deployable.filename}-${project.version}.car</argument>
 							<argument>-F</argument>
 							<argument>isFileAttached=true</argument>
 							<argument>-F</argument>
