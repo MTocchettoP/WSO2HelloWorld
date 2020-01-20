@@ -26,10 +26,10 @@
         </configuration>
       </plugin>
 	  <plugin>
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>exec-maven-plugin</artifactId>
-			<version>1.2</version>
-			<executions>
+		<groupId>org.codehaus.mojo</groupId>
+		<artifactId>exec-maven-plugin</artifactId>
+		<version>1.2</version>
+		<executions>
 			<execution>
 				<id>login</id>
 				<phase>deploy</phase>
@@ -55,7 +55,6 @@
 					</arguments>
 				</configuration>
 			</execution>
-
 			<execution>
 				<id>create application</id>
 				<phase>deploy</phase>
@@ -103,7 +102,7 @@
 					</arguments>
 				</configuration>
 			</execution>
-			</executions>
+		</executions>
 	</plugin>
 	<plugin>
 		<artifactId>maven-deploy-plugin</artifactId>
