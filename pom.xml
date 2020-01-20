@@ -58,7 +58,7 @@
 							<argument>userName=${appcloud.username}</argument>
 							<argument>-F</argument>
 							<argument>password=${appcloud.password}</argument>
-							<argument>https://apps.cloud.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag</argument>
+							<argument>https://integration.cloud.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag</argument>
 						</arguments>
 					</configuration>
 				</execution>
