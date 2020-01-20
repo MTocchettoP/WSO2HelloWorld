@@ -102,7 +102,7 @@
 							<argument>-F</argument>
 							<argument>tags=[{"key":"BUILD_NUMBER","value":"${build.number}"}]</argument>
 							<argument>-F</argument>
-							<argument>fileupload=@${module.car.name}\${project.build.directory}\${project.artifactId}-${project.version}.car</argument>
+							<argument>fileupload=@${project.basedir}\${module.car.name}\target\${project.artifactId}-${project.version}.car</argument>
 							<argument>-F</argument>
 							<argument>isFileAttached=true</argument>
 							<argument>-F</argument>
