@@ -13,6 +13,13 @@
 	<module>HelloWorldProjectRegistry</module>
     <module>HelloWorldCompositeApplication</module>  
   </modules>
+  <distributionManagement>
+       <repository>
+         <id>internal.repo</id>
+         <name>Internal repo</name>
+         <url>file:///C:/Users/mpires/IntegrationStudio/workspace/HelloWorldMaster/</url>
+       </repository>
+   </distributionManagement>
   <build>
     <plugins>
 		<plugin>
@@ -111,13 +118,6 @@
 				<skip>true</skip>
 			</configuration>
 		</plugin>
-		<distributionManagement>
-       <repository>
-         <id>internal.repo</id>
-         <name>Internal repo</name>
-         <url>file:///C:/Users/mpires/IntegrationStudio/workspace/HelloWorldMaster/</url>
-       </repository>
-   </distributionManagement>
     </plugins>
   </build>
 </project>
