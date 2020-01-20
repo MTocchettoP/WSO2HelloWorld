@@ -93,7 +93,6 @@
             <phase>package</phase>
             <goals>
               <goal>car</goal>
-			  <finalName>${project.deployable.filename}</finalName>
             </goals>
           </execution>
         </executions>

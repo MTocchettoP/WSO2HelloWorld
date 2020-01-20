@@ -10,7 +10,7 @@
   <description>HelloWorldProject</description>
   <properties>
 	<module.car.name>HelloWorldCompositeApplication</module.car.name>
-	<project.deployable.filename>HelloWorld</project.deployable.filename>
+	<project.deployable.filename>HelloWorldCompositeApplication</project.deployable.filename>
   </properties>
   <modules>
     <module>HelloWorld</module>
