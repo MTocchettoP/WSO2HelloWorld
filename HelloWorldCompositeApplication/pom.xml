@@ -135,7 +135,7 @@
 							<argument>-F</argument>
 							<argument>runtime=24</argument>
 							<argument>-F</argument>
-							<argument>appTypeName=wso2esb-</argument>
+							<argument>appTypeName=wso2esb</argument>
 							<argument>-F</argument>
 							<argument>applicationRevision=1.0.32</argument>
 							<argument>-F</argument>
