@@ -137,7 +137,7 @@
 							<argument>-F</argument>
 							<argument>appTypeName=wso2esb-</argument>
 							<argument>-F</argument>
-							<argument>applicationRevision=1.0.${build_number}</argument>
+							<argument>applicationRevision=1.0.32</argument>
 							<argument>-F</argument>
 							<argument>fileupload=@${project.build.directory}\${project.artifactId}_${project.version}.car</argument>
 							<argument>-F</argument>
