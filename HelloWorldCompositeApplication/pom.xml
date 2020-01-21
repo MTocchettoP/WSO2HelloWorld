@@ -96,10 +96,9 @@
 					<configuration>
 						<executable>curl</executable>
 						<arguments>
-							<argument>-v</argument>
-							<argument>-k</argument>
 							<argument>-c</argument>
 							<argument>cookies</argument>
+							<argument>-v</argument>
 							<argument>-X</argument>
 							<argument>POST</argument>
 							<argument>-F</argument>
@@ -122,7 +121,6 @@
 						<executable>curl</executable>
 						<arguments>
 							<argument>-v</argument>
-							<argument>-k</argument>
 							<argument>-b</argument>
 							<argument>cookies</argument>
 							<argument>-X</argument>
@@ -131,21 +129,15 @@
 							<argument>-F</argument>
 							<argument>action=createApplication</argument>
 							<argument>-F</argument>
-							<argument>applicationName=${project.artifactId}</argument>
+							<argument>applicationName=HelloWorld</argument>
 							<argument>-F</argument>
-							<argument>applicationDescription=${project.artifactId}_${project.version}_${build.number}</argument>
+							<argument>conSpec=5</argument>
 							<argument>-F</argument>
-							<argument>conSpec=3</argument>
+							<argument>runtime=24</argument>
 							<argument>-F</argument>
-							<argument>runtime=1</argument>
-							<argument>-F</argument>
-							<argument>appTypeName=war</argument>
+							<argument>appTypeName=wso2esb-</argument>
 							<argument>-F</argument>
 							<argument>applicationRevision=${deploy.version}.${build.number}</argument>
-							<argument>-F</argument>
-							<argument>uploadedFileName=${project.artifactId}-${project.version}.war</argument>
-							<argument>-F</argument>
-							<argument>runtimeProperties=[]</argument>
 							<argument>-F</argument>
 							<argument>tags=[{"key":"BUILD_NUMBER","value":"${build.number}"}]</argument>
 							<argument>-F</argument>
@@ -156,6 +148,8 @@
 							<argument>isNewVersion=true</argument>
 							<argument>-F</argument>
 							<argument>appCreationMethod=default</argument>
+							<argument>-F</argument>
+							<argument>setDefaultVersion=true</argument>
 						</arguments>
 					</configuration>
 				</execution>
