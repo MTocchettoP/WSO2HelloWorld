@@ -139,8 +139,6 @@
 							<argument>-F</argument>
 							<argument>applicationRevision=${deploy.version}.${build.number}</argument>
 							<argument>-F</argument>
-							<argument>tags=[{"key":"BUILD_NUMBER","value":"${build.number}"}]</argument>
-							<argument>-F</argument>
 							<argument>fileupload=@${project.build.directory}\${project.artifactId}_${project.version}.car</argument>
 							<argument>-F</argument>
 							<argument>isFileAttached=true</argument>
