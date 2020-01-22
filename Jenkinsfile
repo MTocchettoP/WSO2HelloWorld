@@ -6,5 +6,4 @@ pipeline {
                 sh 'mvn --version'
             }
         }
-    }
-}
+    
