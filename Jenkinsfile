@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
         stage('build') {
-			encironment{
+			environment{
 				WSO2_IC_CREDS= credentials('wso2_integration_cloud')
 			}
             steps {
