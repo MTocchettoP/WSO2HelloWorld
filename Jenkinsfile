@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                bat "echo %WSO2_IC_USER%"
+                echo bat "%WSO2_IC_USER%"
             }
         }
     }
