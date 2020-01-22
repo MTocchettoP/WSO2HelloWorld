@@ -17,6 +17,7 @@
     <com.example.HelloWorld.api_._helloWorld>capp/EnterpriseServiceBus</com.example.HelloWorld.api_._helloWorld>
     <com.example.HelloWorldProjectRegistry.resource_._BE>capp/EnterpriseIntegrator</com.example.HelloWorldProjectRegistry.resource_._BE>
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
+	<deploy.version>1.0</deploy.version>
   </properties>
   <dependencies>
     <dependency>
@@ -137,7 +138,7 @@
 							<argument>-F</argument>
 							<argument>appTypeName=wso2esb</argument>
 							<argument>-F</argument>
-							<argument>applicationRevision=1.0.${env.BUILD_NUMBER}</argument>
+							<argument>applicationRevision=${deploy.version}.${env.BUILD_NUMBER}</argument>
 							<argument>-F</argument>
 							<argument>fileupload=@${project.build.directory}\${project.artifactId}_${project.version}.car</argument>
 							<argument>-F</argument>
