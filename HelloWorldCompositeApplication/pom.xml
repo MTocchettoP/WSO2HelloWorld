@@ -113,6 +113,32 @@
 					</configuration>
 				</execution>
 				<execution>
+					<id>stop application</id>
+					<phase>deploy</phase>
+					<goals>
+						<goal>exec</goal>
+					</goals>
+					<configuration>
+						<executable>curl</executable>
+						<arguments>
+							<argument>-v</argument>
+							<argument>-b</argument>
+							<argument>cookies</argument>
+							<argument>-X</argument>
+							<argument>POST</argument>
+							<argument>https://integration.cloud.wso2.com/appmgt/site/blocks/application/application.jag</argument>
+							<argument>-F</argument>
+							<argument>action=stopApplication</argument>
+							<argument>-F</argument>
+							<argument>applicationName=HelloWorld</argument>
+							<argument>-F</argument>
+							<argument>applicationRevision=1.0.36</argument>
+							<argument>-F</argument>
+							<argument>versionKey=795503729076775690</argument>
+						</arguments>
+					</configuration>
+				</execution>
+				<execution>
 					<id>create application</id>
 					<phase>deploy</phase>
 					<goals>
