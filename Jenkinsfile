@@ -47,7 +47,22 @@ pipeline {
 		stage('deploy') {
 		
 			steps {
+				//Prep
+				script {
+				    pom = readMavenPom file: 'pom.xml'
+				    deployFolder = pom.properties.'car.folder'
+				}
+				dir(deployFolder) {
+                    script {
+    				    pom = readMavenPom file: 'pom.xml'
+    				    deployVersion = pom.properties.'deploy.version'
+						builDir = pom.properties.'build.directory'
+				    }
+                }
+				echo pom.version
 				
+				bat "curl -v -b cookies -X POST -F action=createApplication -F applicationName=${APP_NAME} -F conSpec=5 -F runtime=24 -F appTypeName=wso2esb -F applicationRevision=${deployVersion}.${env.BUILD_NUMBER} -F fileupload=@${builDir}\${pom.artifactId}_${pom.version}.car -F isFileAttached=true -F isNewVersion=true -F appCreationMethod=default -F setDefaultVersion=true https://integration.cloud.wso2.com/appmgt/site/blocks/application/application.jag"
+            
 			}
 			
 		}
