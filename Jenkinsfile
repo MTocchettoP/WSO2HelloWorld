@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-		docker{
-			image 'maven:3.6-jdk-8'
-		}
-	}
+    agent any
 	
     stages {
         stage('build') {
@@ -11,7 +7,7 @@ pipeline {
 				WSO2_IC_CREDS= credentials('55c97d12-ba8a-40b1-b73f-7289760722ea')
 			}
             steps {
-                sh 'curl -c cookies -v -X POST -k https://integration.cloud.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag  -d "action=login&userName=$"{WSO2_IC_CREDS_USR}"&password="${WSO2_IC_CREDS_PSW}'
+                bat 'C:\Program Files\cURL\bin\curl.exe -c cookies -v -X POST -k https://integration.cloud.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag  -d "action=login&userName=$"{WSO2_IC_CREDS_USR}"&password="${WSO2_IC_CREDS_PSW}'
             }
         }
     }
