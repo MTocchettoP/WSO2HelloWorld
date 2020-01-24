@@ -42,7 +42,7 @@ pipeline {
 			
 			steps {
 				git credentialsId: '437104b4-e176-4c0e-bd87-74dd916f70e6', url: 'https://github.com/MTocchettoP/WSO2HelloWorld'
-				//bat "mvn clean install -Dmaven.test.skip=true"
+				bat "mvn clean install -Dmaven.test.skip=true"
 			}
 		}
 		stage('deploy') {
