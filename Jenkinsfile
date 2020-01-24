@@ -6,6 +6,7 @@ pipeline {
 				APP_NAME = 'HelloWorld'
 				GIT_REPO = 'https://github.com/MTocchettoP/WSO2HelloWorld'
 				GIT_CRED = '437104b4-e176-4c0e-bd87-74dd916f70e6'
+				WSO2_LOGIN_URL = 'https://integration.cloud.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag'
 			}
 			
     stages {
@@ -14,7 +15,7 @@ pipeline {
             steps {
 			
 				//Login into WSO2 Integration Cloud, this gives puts the auth in a cookie file so future requests are already authorized
-                bat "curl -c cookies -v -X POST -F action=login -F userName=${env.WSO2_IC_CREDS_USR} -F password=${env.WSO2_IC_CREDS_PSW} https://integration.cloud.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag"
+                bat "curl -c cookies -v -X POST -F action=login -F userName=${env.WSO2_IC_CREDS_USR} -F password=${env.WSO2_IC_CREDS_PSW} ${WSO2_LOGIN_URL}"
             
 				script{ 
 					
@@ -44,7 +45,7 @@ pipeline {
 		stage('build') {
 			
 			steps {
-				git credentialsId: '437104b4-e176-4c0e-bd87-74dd916f70e6', url: "${GIT_REPO}"
+				git credentialsId: "${GIT_CRED}", url: "${GIT_REPO}"
 				bat "mvn clean install -Dmaven.test.skip=true"
 			}
 		}
