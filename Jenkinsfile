@@ -43,7 +43,7 @@ pipeline {
 		stage('build') {
 			
 			steps {
-				git credentialsId: '437104b4-e176-4c0e-bd87-74dd916f70e6', url: ${GIT_REPO}
+				git credentialsId: '437104b4-e176-4c0e-bd87-74dd916f70e6', url: '${GIT_REPO}'
 				bat "mvn clean install -Dmaven.test.skip=true"
 			}
 		}
