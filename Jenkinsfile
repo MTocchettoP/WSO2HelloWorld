@@ -1,8 +1,10 @@
 pipeline {
     agent any
 	environment{
+				//Set all variables and credentials here to avoid any changes in the script
 				WSO2_IC_CREDS= credentials('55c97d12-ba8a-40b1-b73f-7289760722ea')
 				APP_NAME = 'HelloWorld'
+				GIT_REPO = 'https://github.com/MTocchettoP/WSO2HelloWorld'
 			}
 			
     stages {
@@ -41,7 +43,7 @@ pipeline {
 		stage('build') {
 			
 			steps {
-				git credentialsId: '437104b4-e176-4c0e-bd87-74dd916f70e6', url: 'https://github.com/MTocchettoP/WSO2HelloWorld'
+				git credentialsId: '437104b4-e176-4c0e-bd87-74dd916f70e6', url: ${GIT_REPO}
 				bat "mvn clean install -Dmaven.test.skip=true"
 			}
 		}
