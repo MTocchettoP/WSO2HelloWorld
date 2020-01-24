@@ -10,7 +10,7 @@ pipeline {
 			
             steps {
 			
-				//Login into WSO2 Integration Cloud, this gives puts the auth in a cookie so future requests are already authorized
+				//Login into WSO2 Integration Cloud, this gives puts the auth in a cookie file so future requests are already authorized
                 bat "curl -c cookies -v -X POST -F action=login -F userName=${env.WSO2_IC_CREDS_USR} -F password=${env.WSO2_IC_CREDS_PSW} https://integration.cloud.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag"
             
 				script{ 
@@ -25,13 +25,14 @@ pipeline {
                     
 					//Use the latest_ver number to get the hashed key of the version number
                     response = bat (returnStdout: true, script: "curl -v -b cookies  -X POST -F action=getVersionHashId -F applicationName=${APP_NAME} -F applicationRevision=${latest_ver} https://integration.cloud.wso2.com/appmgt/site/blocks/application/application.jag").trim()
-                    versionHash = response.readLines().drop(1).join(" ") 
+                    versionHash = response.readLines().drop(1).join(" ").trim() 
                                        
                 }
+            
 				
 				//Stop the latest version of the application, using the versionHash
-				bat "curl -c cookies -v -X POST -F action=stopApplication -F applicationName=${APP_NAME} -F applicationRevision=${latest_ver} -F versionKey=${versionHash} https://integration.cloud.wso2.com/appmgt/site/blocks/application/application.jag"
-            
+				bat "curl -v -b cookies -X POST -F action=stopApplication -F applicationName=${APP_NAME} -F applicationRevision=${latest_ver} -F versionKey=${versionHash} https://integration.cloud.wso2.com/appmgt/site/blocks/application/application.jag"
+                
                 
 
                 
@@ -41,7 +42,7 @@ pipeline {
 			
 			steps {
 				git credentialsId: '437104b4-e176-4c0e-bd87-74dd916f70e6', url: 'https://github.com/MTocchettoP/WSO2HelloWorld'
-				bat "mvn clean install -Dmaven.test.skip=true"
+				//bat "mvn clean install -Dmaven.test.skip=true"
 			}
 		}
 		stage('deploy') {
@@ -58,12 +59,14 @@ pipeline {
                     script {
     				    pom = readMavenPom file: 'pom.xml'
     				    deployVersion = pom.properties.'deploy.version'
-						buildDir = pom.properties.'build.directory'
-				    }
-					
-					//Deploy
-					bat "curl -v -b cookies -X POST -F action=createApplication -F applicationName=${APP_NAME} -F conSpec=5 -F runtime=24 -F appTypeName=wso2esb -F applicationRevision=${deployVersion}.${env.BUILD_NUMBER} -F fileupload=@${buildDir}\${pom.artifactId}_${pom.version}.car -F isFileAttached=true -F isNewVersion=true -F appCreationMethod=default -F setDefaultVersion=true https://integration.cloud.wso2.com/appmgt/site/blocks/application/application.jag"
-            
+						//buildDir = pom.properties.'build.dir'
+				    
+                        //Deploy
+						//Since we are inside a subfolder from where our auth cookie was created, we need to add a step up to the cookie file ..\\
+					    bat "curl -v -b ..\\cookies -X POST -F action=createApplication -F applicationName=${APP_NAME} -F conSpec=5 -F runtime=24 -F appTypeName=wso2esb -F applicationRevision=${deployVersion}.${env.BUILD_NUMBER} -F fileupload=@target\\${pom.artifactId}_${pom.version}.car -F isFileAttached=true -F isNewVersion=true -F appCreationMethod=default -F setDefaultVersion=true https://integration.cloud.wso2.com/appmgt/site/blocks/application/application.jag"                  
+                        
+                    }
+                    
                 }
 								
 			}
