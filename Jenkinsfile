@@ -47,7 +47,7 @@ pipeline {
 			
 			steps {
 				git credentialsId: "${GIT_CRED}", url: "${GIT_REPO}"
-				bat "mvn clean install"
+				bat "mvn -e clean install"
 			}
 		}
 		stage('deploy') {
