@@ -36,7 +36,7 @@ pipeline {
             
 				
 				//Stop the latest version of the application, using the versionHash
-				bat "curl -v -b cookies -X POST -F action=stopApplication -F applicationName=${APP_NAME} -F applicationRevision=${latest_ver} -F versionKey=${versionHash} ${WSO2_IC_APP_URL}"
+				//bat "curl -v -b cookies -X POST -F action=stopApplication -F applicationName=${APP_NAME} -F applicationRevision=${latest_ver} -F versionKey=${versionHash} ${WSO2_IC_APP_URL}"
                 
                 
 
@@ -47,7 +47,7 @@ pipeline {
 			
 			steps {
 				git credentialsId: "${GIT_CRED}", url: "${GIT_REPO}"
-				bat "mvn -e -X clean install -DtestServerType=local -DtestServerPort=9008 -DtestServerPath=C:\\IntegrationStudio\\runtime\\microesb\\bin\\micro-integrator.bat"
+				bat "mvn -e clean install -Dmaven.test.skip=true" // -DtestServerType=local -DtestServerPort=9008 -DtestServerPath=C:\\IntegrationStudio\\runtime\\microesb\\bin\\micro-integrator.bat"
 			}
 		}
 		stage('deploy') {
