@@ -47,7 +47,7 @@ pipeline {
 			
 			steps {
 				git credentialsId: "${GIT_CRED}", url: "${GIT_REPO}"
-				bat "mvn -e clean install"
+				bat "mvn -e clean install -DtestServerType=local -DtestServerPort=9008"
 			}
 		}
 		stage('deploy') {
