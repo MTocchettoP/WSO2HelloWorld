@@ -16,7 +16,7 @@
             <assertions>
                 <assertEquals>
                     <actual>$body</actual>
-                    <expected><![CDATA[Hello World]]></expected>
+                    <expected><![CDATA[Hello Hello]]></expected>
                     <message>Message is not what was expected</message>
                 </assertEquals>
             </assertions>
