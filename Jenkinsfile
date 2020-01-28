@@ -48,6 +48,7 @@ pipeline {
 			steps {
 				git credentialsId: "${GIT_CRED}", url: "${GIT_REPO}"
 				
+				//Due to a wso2 pluging bug, the tests have to be ran in a different directory, not sure how this will go when tests have to run in different dirs
 				dir(APP_NAME){
 				
 					bat "mvn -e clean test -DtestServerType=local -DtestServerPort=9008 -DtestServerPath=C:\\IntegrationStudio\\runtime\\microesb\\bin\\micro-integrator.bat" //-Dmaven.test.skip=true" 
@@ -75,13 +76,11 @@ pipeline {
                         //Deploy
 						//Since we are inside a subfolder from where our auth cookie was created, we need to add a step up to the cookie file ..\\
 					    bat "curl -v -b ..\\cookies -X POST -F action=createApplication -F applicationName=${APP_NAME} -F conSpec=5 -F runtime=24 -F appTypeName=wso2esb -F applicationRevision=${deployVersion}.${env.BUILD_NUMBER} -F fileupload=@target\\${pom.artifactId}_${pom.version}.car -F isFileAttached=true -F isNewVersion=true -F appCreationMethod=default -F setDefaultVersion=true ${WSO2_IC_APP_URL}"                  	
-                    }
-                    
-					//Change the visibility to private
-					bat "curl -v -b cookies -X POST https://integration.cloud.wso2.com/appmgt/site/blocks/settings/settings.jag -F action=updateVersionExposureLevel -F applicationName=${APP_NAME} -F versionName=${deployVersion}.${env.BUILD_NUMBER} -F exposureLevel=private"
-					
+                    }		
                 }
-								
+				
+				//Change the visibility to private
+					bat "curl -v -b cookies -X POST https://integration.cloud.wso2.com/appmgt/site/blocks/settings/settings.jag -F action=updateVersionExposureLevel -F applicationName=${APP_NAME} -F versionName=${deployVersion}.${env.BUILD_NUMBER} -F exposureLevel=private"				
 			}
 			
 		}
