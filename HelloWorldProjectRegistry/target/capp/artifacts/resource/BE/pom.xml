@@ -8,6 +8,13 @@
   <packaging>registry/resource</packaging>
   <name>BE</name>
   <description>BE</description>
+  <distributionManagement>
+    <repository>
+      <id>internal.repo</id>
+      <name>Internal repo</name>
+      <url>file:///C:/Users/mpires/IntegrationStudio/workspace/HelloWorldMaster/</url>
+    </repository>
+  </distributionManagement>
   <repositories>
     <repository>
       <releases>

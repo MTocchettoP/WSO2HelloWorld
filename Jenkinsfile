@@ -36,7 +36,7 @@ pipeline {
             
 				
 				//Stop the latest version of the application, using the versionHash
-				//bat "curl -v -b cookies -X POST -F action=stopApplication -F applicationName=${APP_NAME} -F applicationRevision=${latest_ver} -F versionKey=${versionHash} ${WSO2_IC_APP_URL}"
+				bat "curl -v -b cookies -X POST -F action=stopApplication -F applicationName=${APP_NAME} -F applicationRevision=${latest_ver} -F versionKey=${versionHash} ${WSO2_IC_APP_URL}"
                 
                 
 
@@ -47,7 +47,7 @@ pipeline {
 			
 			steps {
 				git credentialsId: "${GIT_CRED}", url: "${GIT_REPO}"
-				bat "mvn -e clean install -Dmaven.test.skip=true" // -DtestServerType=local -DtestServerPort=9008 -DtestServerPath=C:\\IntegrationStudio\\runtime\\microesb\\bin\\micro-integrator.bat"
+				bat "mvn -e -X clean install -DtestServerType=local -DtestServerPort=9008 -DtestServerPath=C:\\IntegrationStudio\\runtime\\microesb\\bin\\micro-integrator.bat" //-Dmaven.test.skip=true" 
 			}
 		}
 		stage('deploy') {
@@ -68,10 +68,12 @@ pipeline {
 				    
                         //Deploy
 						//Since we are inside a subfolder from where our auth cookie was created, we need to add a step up to the cookie file ..\\
-					    bat "curl -v -b ..\\cookies -X POST -F action=createApplication -F applicationName=${APP_NAME} -F conSpec=5 -F runtime=24 -F appTypeName=wso2esb -F applicationRevision=${deployVersion}.${env.BUILD_NUMBER} -F fileupload=@target\\${pom.artifactId}_${pom.version}.car -F isFileAttached=true -F isNewVersion=true -F appCreationMethod=default -F setDefaultVersion=true ${WSO2_IC_APP_URL}"                  
-                        
+					    bat "curl -v -b ..\\cookies -X POST -F action=createApplication -F applicationName=${APP_NAME} -F conSpec=5 -F runtime=24 -F appTypeName=wso2esb -F applicationRevision=${deployVersion}.${env.BUILD_NUMBER} -F fileupload=@target\\${pom.artifactId}_${pom.version}.car -F isFileAttached=true -F isNewVersion=true -F appCreationMethod=default -F setDefaultVersion=true ${WSO2_IC_APP_URL}"                  	
                     }
                     
+					//Change the visibility to private
+					bat "curl -v -b cookies -X POST https://integration.cloud.wso2.com/appmgt/site/blocks/settings/settings.jag -F action=updateVersionExposureLevel -F applicationName=${APP_NAME} -F versionName=${deployVersion}.${env.BUILD_NUMBER} -F exposureLevel=private"
+					
                 }
 								
 			}

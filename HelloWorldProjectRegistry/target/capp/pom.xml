@@ -11,4 +11,11 @@
   <modules>
     <module>artifacts\resource\BE</module>
   </modules>
+  <distributionManagement>
+    <repository>
+      <id>internal.repo</id>
+      <name>Internal repo</name>
+      <url>file:///C:/Users/mpires/IntegrationStudio/workspace/HelloWorldMaster/</url>
+    </repository>
+  </distributionManagement>
 </project>

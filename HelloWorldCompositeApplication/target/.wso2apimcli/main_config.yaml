@@ -1,4 +1,0 @@
-config:
-  http_request_timeout: 10000
-  export_directory: .wso2apimcli\exported
-environments: {}
