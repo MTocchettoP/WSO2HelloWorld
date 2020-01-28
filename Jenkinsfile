@@ -47,7 +47,13 @@ pipeline {
 			
 			steps {
 				git credentialsId: "${GIT_CRED}", url: "${GIT_REPO}"
-				bat "mvnDebug -e -X clean install -DtestServerType=local -DtestServerPort=9008 -DtestServerPath=C:\\IntegrationStudio\\runtime\\microesb\\bin\\micro-integrator.bat" //-Dmaven.test.skip=true" 
+				
+				dir(APP_NAME){
+				
+					bat "mvn -e clean test -DtestServerType=local -DtestServerPort=9008 -DtestServerPath=C:\\IntegrationStudio\\runtime\\microesb\\bin\\micro-integrator.bat" //-Dmaven.test.skip=true" 
+				}
+				
+				bat "mvn -e clean install -Dmaven.test.skip=true" 
 			}
 		}
 		stage('deploy') {
