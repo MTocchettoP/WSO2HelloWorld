@@ -12,6 +12,7 @@
         <groupId>com.example</groupId>
         <artifactId>HelloWorldProject</artifactId>
         <version>1.0.0</version>
+		<relativePath>../pom.xml</relativePath>
    </parent>
   <properties>
     <com.example.HelloWorld.api_._helloWorld>capp/EnterpriseServiceBus</com.example.HelloWorld.api_._helloWorld>
