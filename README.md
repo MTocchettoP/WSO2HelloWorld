@@ -60,7 +60,8 @@ TODOs:
 - There is no easy way to promote a process from a QA to a Prod , the better way is to deploy the project as a different application i.E HelloWorldProd and HelloWorldQA, these would be independent applications as they should
 - In order to deploy the QA app all it would take is a change in name, a quick tweek to the jenkinsfile should do it based on a variable I.E Every commit to a dev branch will push to QA, things are only pushed to Prod after a merge from a senior member etc etc
   
-  Note:
+  
+Note:
   
   Updating the capp file of an existing application
  
