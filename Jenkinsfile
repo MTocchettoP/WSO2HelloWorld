@@ -37,10 +37,7 @@ pipeline {
 				
 				//Stop the latest version of the application, using the versionHash
 				bat "curl -v -b cookies -X POST -F action=stopApplication -F applicationName=${APP_NAME} -F applicationRevision=${latest_ver} -F versionKey=${versionHash} ${WSO2_IC_APP_URL}"
-                
-                
-
-                
+              
             }
         }
 		stage('build') {
@@ -49,9 +46,16 @@ pipeline {
 				git credentialsId: "${GIT_CRED}", url: "${GIT_REPO}"
 				
 				//Due to a wso2 pluging bug, the tests have to be ran in a different directory, not sure how this will go when tests have to run in different dirs
+				/*
+				 The synapse test plugin adds a ..\ before the artifact path, this causes the path to be invalid. This is the path of the artifact
+				 that will be tested, i.e helloWorld.xml , due to this, we are going into the HelloWorld dir so when the ..\ is applied it goes 
+				 back to root and the path is valid again. An issue has been open on github  https://github.com/wso2/maven-tools/issues/51
+				*/
 				dir(APP_NAME){
-				
-					bat "mvn -e clean test -DtestServerType=local -DtestServerPort=9008 -DtestServerPath=C:\\IntegrationStudio\\runtime\\microesb\\bin\\micro-integrator.bat" //-Dmaven.test.skip=true" 
+					
+					//The three test flags were copied from local run, not sure if anything should be changed, but clearly the micro-integrator.bat will
+					//need to be deployed to the same server as jenkins
+					bat "mvn -e clean test -DtestServerType=local -DtestServerPort=9008 -DtestServerPath=C:\\IntegrationStudio\\runtime\\microesb\\bin\\micro-integrator.bat"
 				}
 				
 				bat "mvn -e clean install -Dmaven.test.skip=true" 
