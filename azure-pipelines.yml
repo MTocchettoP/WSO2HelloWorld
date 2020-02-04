@@ -12,13 +12,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: DownloadGitHubRelease@0
-  inputs:
-    connection: 'github.com_MTocchettoP'
-    userRepository: 'MTocchettoP/WSO2HelloWorld'
-    defaultVersionType: 'latest'
-    downloadPath: '$(System.ArtifactsDirectory)'
-
 
 - script: echo pwd
   displayName: 'Run a one-line script'
