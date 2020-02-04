@@ -10,6 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: 'Git Pull latest version'
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
@@ -17,3 +18,12 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+#Get git release
+#get docker
+#Build artifact
+#build docker image
+#deploy docker
+#TODO docker handoff/hotswap+
+#
+#
