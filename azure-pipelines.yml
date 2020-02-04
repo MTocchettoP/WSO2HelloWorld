@@ -16,6 +16,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'install'
+    options: '-e'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
@@ -23,7 +24,7 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-    
+
 - script: |
     pwd
     ls
