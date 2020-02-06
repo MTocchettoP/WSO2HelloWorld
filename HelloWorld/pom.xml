@@ -163,16 +163,6 @@
           </projectnatures>
         </configuration>
       </plugin>
-      <plugin>
-        <artifactId>maven-eclipse-plugin</artifactId>
-        <version>2.9</version>
-        <configuration>
-          <buildcommands />
-          <projectnatures>
-            <projectnature>org.wso2.developerstudio.eclipse.mavenmultimodule.project.nature</projectnature>
-          </projectnatures>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
 </project>
