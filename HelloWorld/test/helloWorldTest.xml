@@ -1,7 +1,7 @@
 <unit-test>
     <artifacts>
         <test-artifact>
-            <artifact>/HelloWorld/src/main/synapse-config/api/helloWorld.xml</artifact>
+            <artifact>HelloWorldMaster/HelloWorld/src/main/synapse-config/api/helloWorld.xml</artifact>
         </test-artifact>
         <supportive-artifacts/>
         <registry-resources/>

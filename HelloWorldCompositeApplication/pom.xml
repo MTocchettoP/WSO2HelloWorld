@@ -2,18 +2,17 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example.HelloWorldCompositeApplication</groupId>
-  <artifactId>HelloWorldCompositeApplication</artifactId>
-  <version>1.0.0</version>
-  <packaging>carbon/application</packaging>
-  <name>HelloWorldCompositeApplication</name>
-  <description>HelloWorldCompositeApplication</description>
-  <parent>
-        <groupId>com.example</groupId>
-        <artifactId>HelloWorldProject</artifactId>
+    <parent>
+        <groupId>com.example.HelloWorldProject</groupId>
+        <artifactId>HelloWorldMaster</artifactId>
         <version>1.0.0</version>
 		<relativePath>../pom.xml</relativePath>
    </parent>
+  <artifactId>HelloWorldCompositeApplication</artifactId>
+  <packaging>carbon/application</packaging>
+  <name>HelloWorldCompositeApplication</name>
+  <description>HelloWorldCompositeApplication</description>
+
   <properties>
     <com.example.HelloWorld.api_._helloWorld>capp/EnterpriseServiceBus</com.example.HelloWorld.api_._helloWorld>
     <com.example.HelloWorldProjectRegistry.resource_._BE>capp/EnterpriseIntegrator</com.example.HelloWorldProjectRegistry.resource_._BE>
