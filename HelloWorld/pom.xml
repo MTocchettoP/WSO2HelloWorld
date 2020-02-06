@@ -3,12 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.example.HelloWorldProject</groupId>
+    <groupId>com.example</groupId>
     <artifactId>HelloWorldMaster</artifactId>
     <version>1.0.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  <groupId>com.example.HelloWorldProject</groupId>
+  <groupId>com.example</groupId>
   <artifactId>HelloWorld</artifactId>
   <version>1.0.0</version>
   <packaging>ear</packaging>

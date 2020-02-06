@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.example.HelloWorldProject</groupId>
+        <groupId>com.example</groupId>
         <artifactId>HelloWorldMaster</artifactId>
         <version>1.0.0</version>
 		<relativePath>../pom.xml</relativePath>
@@ -22,13 +22,13 @@
   </properties>
   <dependencies>
     <dependency>
-      <groupId>com.example.HelloWorldProject.HelloWorld.api</groupId>
+      <groupId>com.example.HelloWorld.api</groupId>
       <artifactId>helloWorld</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
     <dependency>
-      <groupId>com.example.HelloWorldProject.HelloWorldProjectRegistry.resource</groupId>
+      <groupId>com.example.HelloWorldProjectRegistry.resource</groupId>
       <artifactId>BE</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
