@@ -6,18 +6,30 @@
 trigger:
 - master
 
+
+
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
 
 steps:
-- task: 'Git Pull latest version'
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'install'
+    options: '-DtestServerType=remote -DtestServerPort=9008 -DtestServerHost=13.86.136.198'
+    publishJUnitResults: false
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    pwd
+    ls
+  displayName: 'Run a one-line script'
+
+
 
 #Get git release
 #get docker
