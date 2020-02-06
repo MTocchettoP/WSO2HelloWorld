@@ -10,28 +10,38 @@
   <description>HelloWorldMaster</description>
   <modules>
     <module>HelloWorld</module>
-	<module>HelloWorldProjectRegistry</module>
-    <module>HelloWorldCompositeApplication</module>  
+    <module>HelloWorldProjectRegistry</module>
+    <module>HelloWorldCompositeApplication</module>
   </modules>
-  <properties>
-	<car.folder>HelloWorldCompositeApplication</car.folder>
-  </properties>
   <distributionManagement>
-       <repository>
-         <id>internal.repo</id>
-         <name>Internal repo</name>
-         <url>file:///C:/Users/mpires/IntegrationStudio/workspace/HelloWorldMaster/</url>
-       </repository>
-   </distributionManagement>
+    <repository>
+      <id>internal.repo</id>
+      <name>Internal repo</name>
+      <url>file:///C:/Users/mpires/IntegrationStudio/workspace/HelloWorldMaster/</url>
+    </repository>
+  </distributionManagement>
+  <properties>
+    <car.folder>HelloWorldCompositeApplication</car.folder>
+  </properties>
   <build>
     <plugins>
-		<plugin>
-			<artifactId>maven-deploy-plugin</artifactId>
-			<version>2.7</version>
-			<configuration>
-				<skip>true</skip>
-			</configuration>
-		</plugin>
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <version>2.9</version>
+        <configuration>
+          <buildcommands />
+          <projectnatures>
+            <projectnature>org.wso2.developerstudio.eclipse.mavenmultimodule.project.nature</projectnature>
+          </projectnatures>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
