@@ -2,12 +2,12 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example.HelloWorldProjectRegistry.resource</groupId>
-  <artifactId>BE</artifactId>
+  <groupId>com.example.HelloWorld.api</groupId>
+  <artifactId>helloWorld</artifactId>
   <version>1.0.0</version>
-  <packaging>registry/resource</packaging>
-  <name>BE</name>
-  <description>BE</description>
+  <packaging>synapse/api</packaging>
+  <name>helloWorld</name>
+  <description>helloWorld</description>
   <distributionManagement>
     <repository>
       <id>internal.repo</id>
@@ -57,11 +57,11 @@
     <plugins>
       <plugin>
         <groupId>org.wso2.maven</groupId>
-        <artifactId>maven-registry-plugin</artifactId>
+        <artifactId>wso2-esb-api-plugin</artifactId>
         <version>2.1.0</version>
         <extensions>true</extensions>
         <configuration>
-          <artifact>registry-info.xml</artifact>
+          <artifact>helloWorld.xml</artifact>
         </configuration>
       </plugin>
     </plugins>

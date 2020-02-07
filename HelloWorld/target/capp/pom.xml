@@ -2,14 +2,14 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example.HelloWorldProjectRegistry</groupId>
-  <artifactId>HelloWorldProjectRegistry_module</artifactId>
+  <groupId>com.example.HelloWorld</groupId>
+  <artifactId>HelloWorld_module</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
-  <name>HelloWorldProjectRegistry_module</name>
-  <description>HelloWorldProjectRegistry_module</description>
+  <name>HelloWorld_module</name>
+  <description>HelloWorld_module</description>
   <modules>
-    <module>artifacts\resource\BE</module>
+    <module>artifacts\api\helloWorld</module>
   </modules>
   <distributionManagement>
     <repository>
