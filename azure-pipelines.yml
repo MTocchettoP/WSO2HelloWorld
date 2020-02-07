@@ -16,7 +16,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'install'
-    options: '-DtestServerType=remote -DtestServerPort=9008 -DtestServerHost=13.86.136.198'
+    options: '-DtestServerType=remote -DtestServerPort=9008 -DtestServerHost=13.86.136.198 --no-transfer-progress'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
     mavenVersionOption: 'Default'
