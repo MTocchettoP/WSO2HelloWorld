@@ -15,23 +15,8 @@ pool:
 steps:
 
 - script: |
-    pwd
-    ls
     cd HelloWorld
-    ls
-    pwd
-
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    goals: 'test'
-    options: '-DtestServerType=remote -DtestServerPort=9008 -DtestServerHost=13.86.136.198 --no-transfer-progress'
-    publishJUnitResults: false
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
+    mvn -DtestServerType=remote -DtestServerPort=9008 -DtestServerHost=13.86.136.198 --no-transfer-progress
 
 - script: |
     pwd
