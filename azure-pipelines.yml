@@ -22,7 +22,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'install'
-    options: '--no-transfer-progress -DskipTests'
+    options: '--no-transfer-progress -Dmaven.test.skip=true'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
     mavenVersionOption: 'Default'
