@@ -15,9 +15,11 @@ pool:
 steps:
 
 - script: |
+    pwd
     ls
     cd HelloWorld
     ls
+    pwd
 
 - task: Maven@3
   inputs:
