@@ -16,7 +16,7 @@ steps:
 
 - script: |
     cd HelloWorld
-    mvn -DtestServerType=remote -DtestServerPort=9008 -DtestServerHost=13.86.136.198 --no-transfer-progress
+    mvn test -DtestServerType=remote -DtestServerPort=9008 -DtestServerHost=13.86.136.198 --no-transfer-progress
 
 - script: |
     pwd
