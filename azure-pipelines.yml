@@ -18,6 +18,18 @@ steps:
     cd HelloWorld
     mvn test -DtestServerType=remote -DtestServerPort=9008 -DtestServerHost=13.86.136.198 --no-transfer-progress
 
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'install'
+    options: '--no-transfer-progress -DskipTests'
+    publishJUnitResults: false
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
+
 - script: |
     pwd
     ls
