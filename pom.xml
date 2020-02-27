@@ -10,12 +10,9 @@
   <description>HelloWorldProject</description>
   <modules>
     <module>HelloWorld</module>
-	<module>HelloWorldProjectRegistry</module>
+    <module>HelloWorldProjectRegistry</module>
     <module>HelloWorldCompositeApplication</module>  
   </modules>
-  <properties>
-	<car.folder>HelloWorldCompositeApplication</car.folder>
-  </properties>
   <distributionManagement>
        <repository>
          <id>internal.repo</id>
