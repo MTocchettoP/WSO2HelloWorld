@@ -8,6 +8,9 @@
   <packaging>pom</packaging>
   <name>HelloWorldProject</name>
   <description>HelloWorldProject</description>
+  <properties>
+	<car.folder>HelloWorldCompositeApplication</car.folder>
+  </properties>
   <modules>
     <module>HelloWorld</module>
     <module>HelloWorldProjectRegistry</module>
