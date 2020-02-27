@@ -4,8 +4,6 @@ pipeline {
 				//Set all variables and credentials here to avoid any changes in the script
 				WSO2_IC_CREDS= credentials('55c97d12-ba8a-40b1-b73f-7289760722ea')
 				APP_NAME = 'HelloWorld'
-				GIT_REPO = 'https://github.com/MTocchettoP/WSO2HelloWorld'
-				GIT_CRED = '437104b4-e176-4c0e-bd87-74dd916f70e6'
 				WSO2_IC_LOGIN_URL = 'https://integration.cloud.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag'
 				WSO2_IC_APP_URL = 'https://integration.cloud.wso2.com/appmgt/site/blocks/application/application.jag'
 			}
@@ -43,7 +41,6 @@ pipeline {
 		stage('build') {
 			
 			steps {
-				git credentialsId: "${GIT_CRED}", url: "${GIT_REPO}"
 				
 				//Due to a wso2 pluging bug, the tests have to be ran in a different directory, not sure how this will go when tests have to run in different dirs
 				/*
