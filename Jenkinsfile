@@ -68,17 +68,16 @@ pipeline {
 				}
 				
 				//Go into the folder where the car file is located
-				dir(deployFolder) {
-                    script {
-    				    pom = readMavenPom file: 'pom.xml'
-    				    deployVersion = pom.properties.'deploy.version'
-						//buildDir = pom.properties.'build.dir'
+				dir(deployFolder) {	
+                    			script {
+					    pom = readMavenPom file: 'pom.xml'
+					    deployVersion = pom.properties.'deploy.version'
 				    
-                        //Deploy
-						//Since we are inside a subfolder from where our auth cookie was created, we need to add a step up to the cookie file ..\\
+                        		    //Deploy
+					   //Since we are inside a subfolder from where our auth cookie was created, we need to add a step up to the cookie file ..\\
 					    bat "curl -v -b ..\\cookies -X POST -F action=createApplication -F applicationName=${APP_NAME} -F conSpec=5 -F runtime=24 -F appTypeName=wso2esb -F applicationRevision=${deployVersion}.${env.BUILD_NUMBER} -F fileupload=@target\\${pom.artifactId}_${pom.version}.car -F isFileAttached=true -F isNewVersion=true -F appCreationMethod=default -F setDefaultVersion=true ${WSO2_IC_APP_URL}"                  	
-                    }		
-                }
+                    			}		
+                		}
 				
 				//Change the visibility to private
 					bat "curl -v -b cookies -X POST https://integration.cloud.wso2.com/appmgt/site/blocks/settings/settings.jag -F action=updateVersionExposureLevel -F applicationName=${APP_NAME} -F versionName=${deployVersion}.${env.BUILD_NUMBER} -F exposureLevel=private"				
